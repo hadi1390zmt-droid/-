@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fa"><head><meta charset="UTF-8"><title>Location Permission Demo</title></head>
+<body style="font-family:tahoma;text-align:center;margin-top:80px">
+<h2>دریافت موقعیت مکانی</h2>
+<p>با کلیک روی دکمه، مرورگر از شما مجوز Location درخواست می‌کند.</p>
+<button onclick="getLocation()">دریافت موقعیت</button>
+<div id="result" style="margin-top:20px"></div>
+<script>
+function getLocation(){
+ if(!navigator.geolocation){
+   result.innerHTML="مرورگر پشتیبانی نمی‌کند."; return;
+ }
+ navigator.geolocation.getCurrentPosition(
+  p=>{result.innerHTML=`Latitude: ${p.coords.latitude}<br>Longitude: ${p.coords.longitude}`;},
+  e=>{result.innerHTML="مجوز داده نشد یا خطایی رخ داد.";}
+ );
+}
+</script>
+</body></html>
